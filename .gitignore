@@ -5,3 +5,4 @@ dist
 docs/superpowers/
 __screenshots__
 *.tsbuildinfo
+.vitest
