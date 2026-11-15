@@ -16,9 +16,11 @@
         "lint:eslint": "eslint . --max-warnings 0 --cache --cache-strategy content",
         "lint:tsc": "tsc --noEmit",
         "lint:fix": "npm run lint:oxlint -- --fix && npm run lint:eslint -- --fix",
-        "validate:fast": "npm run lint:oxlint && npm run lint:eslint && npm run lint:tsc",
-        "validate": "npm run validate:fast && npm test && npm run build",
-        "prepare": "git rev-parse --git-dir >/dev/null 2>&1 && git config core.hooksPath .githooks || true"
+        "validate:fast": "npm run lint:oxlint && npm run lint:eslint && npm run lint:tsc && npm run lint:structure",
+        "validate": "npm run validate:fast && npm run test:scripts && npm test && npm run build",
+        "prepare": "git rev-parse --git-dir >/dev/null 2>&1 && git config core.hooksPath .githooks || true",
+        "lint:structure": "node scripts/check-structure.mjs",
+        "test:scripts": "node --test \"scripts/**/*.test.mjs\""
     },
     "dependencies": {
         "@tanstack/react-query": "^5.107.1",
