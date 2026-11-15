@@ -5,7 +5,8 @@ import { createRoot } from 'react-dom/client';
 import { AppProviders } from './AppProviders';
 import { AppRouter } from './AppRouter';
 
-const queryClient = new QueryClient();
+// The transport turns every failure into an error envelope, so retrying a query is not the default.
+const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>

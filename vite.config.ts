@@ -2,8 +2,11 @@ import react from '@vitejs/plugin-react';
 import { playwright } from '@vitest/browser-playwright';
 import { defineConfig } from 'vitest/config';
 
+// The .ts extension keeps Vite's native config loader from warning about an extensionless import.
+import { mockTasksApi } from './dev/mock-tasks-api.ts';
+
 export default defineConfig({
-    plugins: [react()],
+    plugins: [react(), mockTasksApi()],
     resolve: { tsconfigPaths: true },
     test: {
         projects: [
