@@ -1,7 +1,9 @@
-import { App, ConfigProvider } from 'antd';
 import type { ReactNode } from 'react';
+import { App, ConfigProvider } from 'antd';
 
-export function AppProviders({ children }: { children: ReactNode }) {
+type Props = { children: ReactNode };
+
+export function AppProviders({ children }: Props) {
     return (
         <ConfigProvider>
             <App>{children}</App>

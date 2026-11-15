@@ -1,6 +1,7 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { ReactElement } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render as renderInBrowser } from 'vitest-browser-react';
+
 import { AppProviders } from '../AppProviders';
 
 export const render = (component: ReactElement) => {
